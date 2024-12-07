@@ -1,5 +1,5 @@
 # opensim-diva-d2-distribution
-opensim diva d2 distribution
+### Es git leider noch Probleme dies ist eine vorab Version.
 
 
 ### Übersicht der Skripte
