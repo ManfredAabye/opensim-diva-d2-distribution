@@ -1,65 +1,71 @@
-# opensim-diva-d2-distribution
-### Es gibt leider noch Probleme, dies ist eine vorab Version.
+# Handbuch zur Verwendung der Diva-Skripte
 
+## Einführung
 
-### Übersicht der Skripte
+Die Diva-Skripte helfen dir, verschiedene Aufgaben im Zusammenhang mit der Einrichtung und Verwaltung der Diva-Distribution für OpenSim zu automatisieren. Dieses Handbuch führt dich durch die Verwendung der vier Hauptskripte: `01DivaSource.bat`, `02DivaPrebuild.bat`, `03DivaCompile.bat` und `04DivaPaketBuilder.bat`.
 
-1. **`01DivaSource.bat`**: Vorbereitung der Quellen und Kopieren der notwendigen Dateien.
-2. **`02DivaPrebuild.bat`**: Erstellt die Prebuild-Datei und bereinigt temporäre Verzeichnisse.
-3. **`03DivaCompile.bat`**: Kompiliert das OpenSim-Projekt in der Release-Konfiguration.
-4. **`04DivaPaketBuilder.bat`**: Führt die Prebuild-, Compile- und Distribution-Skripte aus und verpackt das Ergebnis in ein ZIP-Archiv.
+## Überblick über die Skripte
 
-### Schritt-für-Schritt-Anleitung
+1. **`01DivaSource.bat`**: Dieses Skript klont die notwendigen Git-Repositories und kopiert die erforderlichen Dateien in die entsprechenden Verzeichnisse.
+2. **`02DivaPrebuild.bat`**: Dieses Skript erstellt die Prebuild-Dateien und bereinigt temporäre Verzeichnisse.
+3. **`03DivaCompile.bat`**: Dieses Skript kompiliert das OpenSim-Projekt und die zugehörigen Tools in der Release-Konfiguration.
+4. **`04DivaPaketBuilder.bat`**: Dieses Skript kopiert die kompilierten Dateien und Verzeichnisse, erstellt ein Distributionspaket und komprimiert das Ergebnis in ein ZIP-Archiv.
 
-#### Schritt 1: Vorbereitung der Quellen
+## Schritt-für-Schritt-Anleitung
 
-1. **`01DivaSource.bat` ausführen**:
-   - Öffne die Eingabeaufforderung (cmd.exe).
-   - Navigiere zu dem Verzeichnis, in dem sich die `01DivaSource.bat`-Datei befindet.
-   - Führe das Skript aus:
-     ```shell
-     01DivaSource.bat
-     ```
-   - Dieses Skript klont die notwendigen Git-Repositories und kopiert die erforderlichen Dateien in die entsprechenden Verzeichnisse.
+### Schritt 1: Vorbereitung der Quellen (`01DivaSource.bat`)
 
-#### Schritt 2: Prebuild-Prozess
+**Verwendung**:
+- Öffne die Eingabeaufforderung (cmd.exe).
+- Navigiere zu dem Verzeichnis, in dem sich die `01DivaSource.bat`-Datei befindet.
+- Führe das Skript aus:
+  ```shell
+  01DivaSource.bat
+  ```
 
-1. **`02DivaPrebuild.bat` ausführen**:
-   - Öffne die Eingabeaufforderung (cmd.exe).
-   - Navigiere zu dem Verzeichnis, in dem sich die `02DivaPrebuild.bat`-Datei befindet.
-   - Führe das Skript aus:
-     ```shell
-     02DivaPrebuild.bat
-     ```
-   - Dieses Skript kopiert die erforderliche DLL-Datei, führt das Prebuild-Kommando aus und bereinigt temporäre Verzeichnisse.
+**Beschreibung**:
+Dieses Skript klont die notwendigen Git-Repositories und kopiert die erforderlichen Dateien in die entsprechenden Verzeichnisse. Es stellt sicher, dass alle benötigten Add-on-Module und spezifischen Dateien vorhanden sind, um die Diva-Distribution vorzubereiten.
 
-#### Schritt 3: Kompilierung
+### Schritt 2: Prebuild-Prozess (`02DivaPrebuild.bat`)
 
-1. **`03DivaCompile.bat` ausführen**:
-   - Öffne die Eingabeaufforderung (cmd.exe).
-   - Navigiere zu dem Verzeichnis, in dem sich die `03DivaCompile.bat`-Datei befindet.
-   - Führe das Skript aus:
-     ```shell
-     03DivaCompile.bat
-     ```
-   - Dieses Skript kompiliert das OpenSim-Projekt in der Release-Konfiguration.
+**Verwendung**:
+- Öffne die Eingabeaufforderung (cmd.exe).
+- Navigiere zu dem Verzeichnis, in dem sich die `02DivaPrebuild.bat`-Datei befindet.
+- Führe das Skript aus:
+  ```shell
+  02DivaPrebuild.bat
+  ```
 
-#### Schritt 4: Komplettes Paketbuilding
+**Beschreibung**:
+Dieses Skript erstellt die Prebuild-Dateien, die für die Konfiguration des Projekts benötigt werden. Es kopiert die erforderliche DLL-Datei, führt das Prebuild-Kommando aus und bereinigt temporäre Verzeichnisse, um sicherzustellen, dass das Projekt korrekt vorbereitet ist.
 
-1. **`04DivaPaketBuilder.bat` ausführen**:
-   - Öffne die Eingabeaufforderung (cmd.exe).
-   - Navigiere zu dem Verzeichnis, in dem sich die `04DivaPaketBuilder.bat`-Datei befindet.
-   - Führe das Skript aus:
-     ```shell
-     04DivaPaketBuilder.bat
-     ```
-   - Dieses Skript führt die Prebuild-, Compile- und Distribution-Skripte aus und verpackt das Ergebnis in ein ZIP-Archiv.
+### Schritt 3: Kompilierung (`03DivaCompile.bat`)
 
-### Hinweise
+**Verwendung**:
+- Öffne die Eingabeaufforderung (cmd.exe).
+- Navigiere zu dem Verzeichnis, in dem sich die `03DivaCompile.bat`-Datei befindet.
+- Führe das Skript aus:
+  ```shell
+  03DivaCompile.bat
+  ```
 
-- Stelle sicher, dass alle notwendigen Verzeichnisse und Dateien vorhanden sind.
-- Überprüfe, dass 7-Zip installiert ist und sich im angegebenen Pfad `C:\Program Files\7-Zip\7z.exe` befindet.
-- Wenn du zusätzliche Hilfe benötigst, lass es mich wissen!
+**Beschreibung**:
+Dieses Skript kompiliert das OpenSim-Projekt und die zugehörigen Tools in der Release-Konfiguration. Es stellt sicher, dass alle Komponenten korrekt kompiliert sind und bereit für den Einsatz sind.
+
+### Schritt 4: Paketbuilding (`04DivaPaketBuilder.bat`)
+
+**Verwendung**:
+- Öffne die Eingabeaufforderung (cmd.exe).
+- Navigiere zu dem Verzeichnis, in dem sich die `04DivaPaketBuilder.bat`-Datei befindet.
+- Führe das Skript aus:
+  ```shell
+  04DivaPaketBuilder.bat
+  ```
+
+**Beschreibung**:
+Dieses Skript kopiert die kompilierten Dateien und Verzeichnisse in ein Zielverzeichnis, erstellt ein Distributionspaket und komprimiert das Ergebnis in ein ZIP-Archiv. Es stellt sicher, dass alle Dateien und Verzeichnisse richtig organisiert und verpackt sind, damit sie leicht verteilt und installiert werden können.
+
+---
 
 ## TODO
 Wifi\Localization fehlt.
