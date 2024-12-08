@@ -17,6 +17,8 @@ git clone https://github.com/ManfredAabye/opensimcurrencyserver-dotnet.git %curr
 rem Copy Installer contents to diva-distribution
 echo Copying Installer contents to diva-distribution...
 xcopy /E /I /Y %installerDir%\* %opensimDir%\
+rem Copy addon-modules directories from diva-distribution\Tools to diva-distribution\addon-modules\Tools
+xcopy /E /I /Y %opensimDir%\Tools %opensimDir%\addon-modules\Tools\
 
 rem Copy addon-modules directories from diva-distribution-master to diva-distribution
 echo Copying addon-modules directories from diva-distribution-master to diva-distribution...
@@ -42,6 +44,8 @@ echo Copying addon-modules directories from opensimcurrencyserver-dotnet to diva
 xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Data-MySQL-MySQLMoneyDataWrapper %opensimDir%\addon-modules\OpenSim-Data-MySQL-MySQLMoneyDataWrapper\
 xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Grid-MoneyServer %opensimDir%\addon-modules\OpenSim-Grid-MoneyServer\
 xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Modules-Currency %opensimDir%\addon-modules\OpenSim-Modules-Currency\
+
+rem Copy addon-modules directories from opensimcurrencyserver-dotnet\ to diva-distribution
 
 rem Copy bin files from opensimcurrencyserver-dotnet to diva-distribution
 echo Copying bin files from opensimcurrencyserver-dotnet to diva-distribution...
