@@ -12,6 +12,11 @@ rem Running prebuild
 cd diva-distribution
 dotnet bin\prebuild.dll /target vs2022 /targetframework net8_0 /excludedir "obj|bin" /file prebuild.xml
 
+@REM Running prebuild Tools
+cd Tools
+dotnet bin\prebuild.dll /target vs2022 /targetframework net8_0 /excludedir "obj|bin" /file prebuild.xml
+cd ..
+
 rem Removing directories if they exist
 if exist "bin\addin-db-002" (
     del /F /Q /S bin\addin-db-002 > NUL
@@ -21,10 +26,6 @@ if exist "bin\addin-db-004" (
     del /F /Q /S bin\addin-db-004 > NUL
     rmdir /Q /S bin\addin-db-004
 )
-:: Configure
-cd diva-distribution\Tools
-dotnet bin\prebuild.dll /target vs2022 /targetframework net8_0 /excludedir = "obj | bin" /file prebuild.xml
-cd ..
 
 ::END
 cd ..

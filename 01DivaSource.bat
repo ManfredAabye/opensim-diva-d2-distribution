@@ -14,11 +14,9 @@ git clone https://github.com/ManfredAabye/d2.git %installerDir%
 git clone https://github.com/ManfredAabye/diva-distribution.git %divaDistMasterDir%
 git clone https://github.com/ManfredAabye/opensimcurrencyserver-dotnet.git %currencyServerDir%
 
-rem Copy Installer contents to diva-distribution
 echo Copying Installer contents to diva-distribution...
+rem Copy Installer contents to diva-distribution
 xcopy /E /I /Y %installerDir%\* %opensimDir%\
-rem Copy addon-modules directories from diva-distribution\Tools to diva-distribution\addon-modules\Tools
-xcopy /E /I /Y %opensimDir%\Tools %opensimDir%\addon-modules\Tools\
 
 rem Copy addon-modules directories from diva-distribution-master to diva-distribution
 echo Copying addon-modules directories from diva-distribution-master to diva-distribution...
