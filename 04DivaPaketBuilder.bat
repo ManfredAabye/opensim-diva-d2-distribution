@@ -31,6 +31,9 @@ copy "%source_directory%\configs\doc\OpenSim-previous.ini" "%target_directory%\b
 copy "%source_directory%\configs\doc\OpenSim.exe.config.example" "%target_directory%\bin\" >nul
 copy "%source_directory%\configs\doc\OpenSim.ini.diva.example" "%target_directory%\bin\" >nul
 
+xcopy "%source_directory%\addon-modules\21Wifi\Wifi.ini" "%target_directory%\bin\" /E /I /Y
+xcopy "%source_directory%\addon-modules\21Wifi\WifiSQLite.ini.example" "%target_directory%\bin\" /E /I /Y
+
 :: Copy Web
 xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\de\*" "%target_directory%\bin\de\" /E /I /Y
 xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\es\*" "%target_directory%\bin\es\" /E /I /Y
