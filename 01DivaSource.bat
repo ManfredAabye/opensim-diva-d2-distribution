@@ -43,11 +43,10 @@ xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Data-MySQL-MySQLMoneyDa
 xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Grid-MoneyServer %opensimDir%\addon-modules\OpenSim-Grid-MoneyServer\
 xcopy /E /I /Y %currencyServerDir%\addon-modules\OpenSim-Modules-Currency %opensimDir%\addon-modules\OpenSim-Modules-Currency\
 
-rem Copy addon-modules directories from opensimcurrencyserver-dotnet\ to diva-distribution
-
 rem Copy bin files from opensimcurrencyserver-dotnet to diva-distribution
 echo Copying bin files from opensimcurrencyserver-dotnet to diva-distribution...
 xcopy /E /I /Y %currencyServerDir%\bin\* %opensimDir%\bin\
 
 echo All files have been copied successfully.
 pause
+Wozu ist das Batch Skript?: 
