@@ -61,3 +61,5 @@
 - Überprüfe, dass 7-Zip installiert ist und sich im angegebenen Pfad `C:\Program Files\7-Zip\7z.exe` befindet.
 - Wenn du zusätzliche Hilfe benötigst, lass es mich wissen!
 
+## TODO
+Wifi\Localization fehlt.
