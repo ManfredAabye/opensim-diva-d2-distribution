@@ -1,41 +1,44 @@
 @echo off
 setlocal
 
-:: create Mdiva-r0931
-mkdir Mdiva-r0931
+:: Define source and target directories
+set source_directory=diva-distribution
+set target_directory=Mdiva-r0931
 
-:: copy diva-distribution contents to Mdiva-r0931
-copy diva-distribution\bin\* Mdiva-r0931\bin
-copy diva-distribution\doc\* Mdiva-r0931\doc
-copy diva-distribution\ThirdPartyLicenses\* Mdiva-r0931\ThirdPartyLicenses
-copy diva-distribution\configs\doc\* Mdiva-r0931\doc
+:: Create the target directory if it doesn't exist
+echo Creating target directory: %target_directory%
+if not exist "%target_directory%" mkdir "%target_directory%"
 
-:: copy diva-distribution configs and docs...
-copy diva-distribution\configs\doc\DivaPreferences.ini Mdiva-r0931\bin\config-include
-copy diva-distribution\configs\doc\DotNetZip.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\IMPORTANT.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\INSTALL.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\LICENSE.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\LICENSEIMAGES.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\LICENSEWIFI.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\MyWorld.ini.example Mdiva-r0931\bin\config-include
-copy diva-distribution\configs\doc\OpenSim-previous.ini Mdiva-r0931\bin
-copy diva-distribution\configs\doc\OpenSim.exe.config.example Mdiva-r0931\bin
-copy diva-distribution\configs\doc\OpenSim.ini.diva.example Mdiva-r0931\bin
-copy diva-distribution\configs\doc\README.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\READMEWIFI.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\RegionConfig.ini.example Mdiva-r0931\bin\Regions
-copy diva-distribution\configs\doc\RELEASENOTES.txt Mdiva-r0931\doc
-copy diva-distribution\configs\doc\RELEASENOTESWIFI.txt Mdiva-r0931\doc
+:: Copy all required contents
+echo Copying contents...
 
-@REM rem copy tools from opensimcurrencyserver-dotnet to diva-distribution
-@REM echo Copying tools from opensimcurrencyserver-dotnet to diva-distribution...
-@REM copy diva-distribution\Tools\bin\* diva-distribution\bin\
-@REM copy diva-distribution\Tools\configuration diva-distribution\addon-modules\configuration\
+xcopy "%source_directory%\bin\*" "%target_directory%\bin\" /E /I /Y
+xcopy "%source_directory%\doc\*" "%target_directory%\doc\" /E /I /Y
+xcopy "%source_directory%\configs\doc\*" "%target_directory%\doc\" /E /I /Y
+xcopy "%source_directory%\ThirdPartyLicenses\*" "%target_directory%\ThirdPartyLicenses\" /E /I /Y
+xcopy "%source_directory%\Tools\bin\*" "%target_directory%\bin\" /E /I /Y
 
-rem Zip the distribution using 7-Zip
-echo Zipping...
-7z a -tzip Mdiva-r0931.zip Mdiva-r0931
+:: Copy specific configuration and documentation files
+copy "%source_directory%\configs\doc\DivaPreferences.ini" "%target_directory%\bin\config-include\" >nul
+copy "%source_directory%\configs\doc\DotNetZip.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\IMPORTANT.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\INSTALL.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\LICENSE.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\LICENSEIMAGES.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\LICENSEWIFI.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\MyWorld.ini.example" "%target_directory%\bin\config-include\" >nul
+copy "%source_directory%\configs\doc\OpenSim-previous.ini" "%target_directory%\bin\" >nul
+copy "%source_directory%\configs\doc\OpenSim.exe.config.example" "%target_directory%\bin\" >nul
+copy "%source_directory%\configs\doc\OpenSim.ini.diva.example" "%target_directory%\bin\" >nul
+copy "%source_directory%\configs\doc\README.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\READMEWIFI.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\RegionConfig.ini.example" "%target_directory%\bin\Regions\" >nul
+copy "%source_directory%\configs\doc\RELEASENOTES.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\doc\RELEASENOTESWIFI.txt" "%target_directory%\doc\" >nul
 
-echo Package building completed.
+:: Create ZIP archive
+echo Creating ZIP archive...
+::powershell -Command "Compress-Archive -Path '%target_directory%' -DestinationPath '%target_directory%.zip'"
+
+echo Package created successfully: %target_directory%.zip
 pause
