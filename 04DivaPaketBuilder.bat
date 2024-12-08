@@ -20,25 +20,31 @@ xcopy "%source_directory%\Tools\bin\*" "%target_directory%\bin\" /E /I /Y
 
 :: Copy specific configuration and documentation files
 copy "%source_directory%\configs\doc\DivaPreferences.ini" "%target_directory%\bin\config-include\" >nul
-copy "%source_directory%\configs\doc\DotNetZip.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\IMPORTANT.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\INSTALL.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\LICENSE.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\LICENSEIMAGES.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\LICENSEWIFI.txt" "%target_directory%\doc\" >nul
 copy "%source_directory%\configs\doc\MyWorld.ini.example" "%target_directory%\bin\config-include\" >nul
+
+copy "%source_directory%\configs\doc\*.txt" "%target_directory%\doc\" >nul
+copy "%source_directory%\configs\*.txt" "%target_directory%\doc\" >nul
+
+copy "%source_directory%\README.txt" "%target_directory%\" >nul
+
 copy "%source_directory%\configs\doc\OpenSim-previous.ini" "%target_directory%\bin\" >nul
 copy "%source_directory%\configs\doc\OpenSim.exe.config.example" "%target_directory%\bin\" >nul
 copy "%source_directory%\configs\doc\OpenSim.ini.diva.example" "%target_directory%\bin\" >nul
-copy "%source_directory%\configs\doc\README.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\READMEWIFI.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\RegionConfig.ini.example" "%target_directory%\bin\Regions\" >nul
-copy "%source_directory%\configs\doc\RELEASENOTES.txt" "%target_directory%\doc\" >nul
-copy "%source_directory%\configs\doc\RELEASENOTESWIFI.txt" "%target_directory%\doc\" >nul
+
+:: Copy Web
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\de\*" "%target_directory%\bin\de\" /E /I /Y
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\es\*" "%target_directory%\bin\es\" /E /I /Y
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\fr\*" "%target_directory%\bin\fr\" /E /I /Y
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\pt\*" "%target_directory%\bin\pt\" /E /I /Y
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\ru\*" "%target_directory%\bin\ru\" /E /I /Y
+
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\*" "%target_directory%\bin\en\" /E /I /Y
+
+xcopy "%source_directory%\addon-modules\21Wifi\WifiPages\*" "%target_directory%\WifiPages\" /E /I /Y
 
 :: Create ZIP archive
 echo Creating ZIP archive...
-::powershell -Command "Compress-Archive -Path '%target_directory%' -DestinationPath '%target_directory%.zip'"
+powershell -Command "Compress-Archive -Path '%target_directory%' -DestinationPath '%target_directory%.zip'"
 
 echo Package created successfully: %target_directory%.zip
 pause
