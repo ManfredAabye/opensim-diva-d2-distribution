@@ -67,5 +67,47 @@ Dieses Skript kopiert die kompilierten Dateien und Verzeichnisse in ein Zielverz
 
 ---
 
+### Systemvoraussetzungen für die Verwendung der Diva-Skripte
+
+Um die Diva-Skripte erfolgreich ausführen zu können, solltest du sicherstellen, dass dein System die folgenden Voraussetzungen erfüllt:
+
+#### Betriebssystem:
+- **Windows 10** oder 11 (64-Bit)
+
+#### Hardwareanforderungen:
+- **Prozessor**: Mindestens ein Dual-Core-Prozessor (empfohlen: Quad-Core-Prozessor oder besser)
+- **Arbeitsspeicher (RAM)**: Mindestens 8 GB (empfohlen: 16 GB oder mehr)
+- **Festplattenspeicher**: Mindestens 10 GB freier Speicherplatz für die Installation und Ausführung der Skripte
+
+#### Softwareanforderungen:
+- **.NET SDK**: Version 8.0
+  - Download: [Microsoft .NET](https://dotnet.microsoft.com/download)
+- **Git**: Git-Befehlszeilen-Tool zum Klonen der Repositories
+  - Download: [Git](https://git-scm.com/downloads)
+- **PowerShell**: Eingebaute Komponente in Windows für die Ausführung von PowerShell-Skripten (Version 5.1 oder höher)
+
+#### Zusätzliche Voraussetzungen:
+- **Internetverbindung**: Erforderlich zum Klonen der Repositories und Herunterladen von Abhängigkeiten
+
+#### Optionale Software:
+- **Visual Studio**: Empfohlen für die Bearbeitung und Kompilierung des Quellcodes (Version 2019 oder höher)
+  - Download: [Visual Studio](https://visualstudio.microsoft.com/)
+
+### Zusammenfassung der Schritte zur Vorbereitung:
+
+1. **Installiere .NET SDK**:
+   - Lade das .NET SDK von der Microsoft-Website herunter und installiere es.
+
+2. **Installiere Git**:
+   - Lade Git von der offiziellen Website herunter und installiere es.
+
+3. **Stelle sicher, dass PowerShell installiert und auf dem neuesten Stand ist**:
+   - Überprüfe die PowerShell-Version durch Eingabe von `pwsh -v` in der Eingabeaufforderung.
+
+4. **Software (Visual Studio 22 Comunity)**:
+   - Lade Visual Studio herunter und installiere es, falls du den Quellcode bearbeiten und kompilieren möchtest.
+
+---
+
 ## TODO
 Wifi\Localization fehlt.
